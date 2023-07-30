@@ -1,0 +1,831 @@
+// @import "./destyle" ;
+// @import "./normalize" ;
+@import "./reset";
+@import "./visHidden";
+@import "./vars";
+
+//   add fonts
+// @import "./";
+
+html {
+  font-size: 10px;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.42;
+  letter-spacing: 0.02rem;
+  color: $colorTextSecond;
+
+  background: $colorLightGray;
+}
+
+// === техническиe классs с общими стилями (подчеркивание) ===
+._container {
+  // outline: auto greenyellow;
+  display: grid;
+  grid-template-columns: 10vw 10vw 1fr 10vw 10vw;
+}
+
+// =======  PAGE  ========
+
+.section__title {
+  text-align: center;
+
+  font-size: 4rem;
+  font-weight: 700;
+  color: $colorTextMain;
+}
+
+button,
+a {
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s;
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+}
+
+.btn__round {
+  padding: 1rem 3.6rem;
+
+  font-weight: 700;
+  line-height: 2;
+  text-align: center;
+
+  border-radius: 3.7rem;
+
+  &--fill {
+    color: $colorBgnd;
+
+    background: $colorPrimary;
+  }
+
+  &--empty {
+    color: $colorSecond;
+
+    border: 1px solid $colorSecond;
+  }
+}
+
+.btn_request {
+  grid-area: button;
+
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid $colorPrimary;
+
+  color: $colorPrimary;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.72;
+}
+
+// ============ PAGE STOP ==========
+
+
+// HEADER start -----------------------------------------------
+.main__header {
+  grid-template-areas: " nav nav nav nav nav ";
+
+  padding-top: 3.6rem;
+
+  background: $colorBgndDark;
+}
+
+.main__header__nav {
+  grid-area: nav;
+
+  display: grid;
+  grid-template-columns: 10vw 1fr 1fr 10vw;
+  grid-template-areas:
+    " ... logo userNav ... "
+    " ... siteNav siteNav ... ";
+}
+
+.logo {
+  grid-area: logo;
+
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.333;
+  letter-spacing: 0.01rem;
+
+  color: $colorTextMain;
+}
+
+.user__nav__list {
+  grid-area: userNav;
+
+  margin-bottom: 10rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.8rem;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.user__nav__icon {
+  width: 24px;
+  height: 24px;
+
+  fill: $colorTextSecond;
+}
+
+.site__nav__link {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02rem;
+}
+
+.site__nav__list {
+  grid-area: siteNav;
+
+  margin-bottom: 9.6rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 3rem;
+
+  text-align: center;
+}
+// HEADER stop -----------------------------------------------
+
+// MAIN start -----------------------------------------------
+
+// ===  public  =========================
+.public {
+  grid-template-areas:
+    " ... title title title  ... "
+    " ...  text text text ... "
+    " ... ...  buttons ... ... "
+    " ... services  services services ... ";
+  row-gap: 4rem;
+
+  align-content: start;
+}
+
+.public__title {
+  grid-area: title;
+
+  padding-top: 8rem;
+}
+
+.lead {
+  grid-area: text;
+
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.public__buttons {
+  grid-area: buttons;
+
+  margin-bottom: 4rem;
+
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.public__services__list {
+  grid-area: services;
+
+  margin-bottom: 8rem;
+
+  display: grid;
+  gap: 3rem;
+}
+
+.item__service__title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: 0.01rem;
+
+  color: $colorTextMain;
+}
+
+.item__service__text {
+  line-height: 1.43;
+}
+
+.item__service__icon {
+  width: 4.8rem;
+  height: 4.8rem;
+
+  order: -1;
+
+  fill: $colorSecond;
+}
+
+.item__service {
+  padding: 3.5rem 4rem;
+
+  display: grid;
+  gap: 1rem;
+
+  background: $colorBgnd;
+
+  &--active {
+    background: $colorSecond;
+
+    & > * {
+      color: $colorBgnd;
+      fill: $colorBgnd;
+    }
+  }
+}
+
+.public__background {
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: -1;
+
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+    height: 1500px;
+
+    object-fit: cover;
+  }
+}
+
+// ===  DESIGN   ========================
+
+.design {
+  padding-top: 10rem;
+
+  grid-template-areas:
+    " ... ... title ...  ... "
+    " ... ... text ... ... "
+    " ... ... cards ... ... ";
+
+  align-content: start;
+}
+
+.design__title {
+  grid-area: title;
+
+  margin-bottom: 1rem;
+}
+
+.design__text {
+  grid-area: text;
+
+  margin-bottom: 7.6rem;
+
+  text-align: center;
+}
+
+.design__list {
+  grid-area: cards;
+
+  margin-bottom: 16rem;
+
+  display: grid;
+  gap: 3rem;
+}
+
+.design__item {
+  padding: 3rem 4rem;
+
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    "image"
+    "number"
+    "text";
+  justify-items: center;
+
+  background: $colorBgnd;
+}
+
+.design__item__title {
+  grid-area: text;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.01rem;
+
+  text-align: center;
+}
+
+.design__item__number {
+  grid-area: number;
+
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.43;
+  color: $colorTextMain;
+}
+
+.design__item__icon {
+  grid-area: image;
+
+  width: 4.8rem;
+  height: 4.8rem;
+
+  fill: $colorSecond;
+}
+
+// ===  ADVICE   ============
+
+.advices {
+  grid-template-areas:
+    " ... ... title  ... ... "
+    " ... ...  text ... ... "
+    " ... ...  cards ... ... ";
+}
+
+.advices__title {
+  grid-area: title;
+
+  margin-bottom: 1rem;
+}
+
+.advices__text {
+  grid-area: text;
+
+  margin-bottom: 7.6rem;
+
+  text-align: center;
+}
+
+.advices__list {
+  grid-area: cards;
+
+  margin-bottom: 10.8rem;
+
+  display: grid;
+  gap: 3rem;
+}
+
+.advices__item__link {
+  padding-top: 3rem;
+  background: $colorBgnd;
+
+  display: grid;
+  grid-template-columns: 3rem 1fr 3rem;
+  grid-template-areas:
+    " ... title ... "
+    " ... text ... "
+    "pict pict pict";
+}
+
+.advices__item__title {
+  grid-area: title;
+
+  margin-bottom: 1.5rem;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.01rem;
+
+  color: $colorTextMain;
+}
+
+.advices__item__text {
+  grid-area: text;
+
+  margin-bottom: 3rem;
+}
+
+.advices__item__img {
+  grid-area: pict;
+  justify-self: center;
+
+  width: 100%;
+
+  & img {
+    display: block;
+    width: 100%;
+    // object-fit: cover;
+  }
+}
+
+// ===  ABOUT US start   ============
+
+.about {
+  grid-template-areas:
+    " ... title title title  ... "
+    " ... ... lead ... ... "
+    " ...  video video video ... "
+    "  ... subtitle subtitle subtitle ... "
+    "  ... text text text ... "
+    "  ... cards cards cards ... ";
+
+  justify-items: center;
+
+  padding-top: 10rem;
+  background: $colorBgnd;
+}
+
+.about__title {
+  grid-area: title;
+
+  margin-bottom: 1rem;
+}
+
+.about__lead {
+  grid-area: lead;
+
+  margin-bottom: 10rem;
+
+  text-align: center;
+}
+
+.about__video {
+  grid-area: video;
+
+display: grid;
+grid-template-columns: 1fr;
+
+  margin-bottom: 7.2rem;
+  width: 333px;
+  height: 442px;
+}
+
+.video__picture {
+  grid-area: 1 / 1 / -1 /-1;
+}
+
+.video__play__btn {
+    grid-area: 1 / 1 / -1 /-1;
+    width: 10rem;
+    height: 10rem;
+    align-self: center;
+    justify-self: center;
+  }
+
+
+.about__subtitle {
+  grid-area: subtitle;
+
+  margin-bottom: 1rem;
+
+  text-align: left;
+}
+
+.about__text {
+  grid-area: text;
+
+  margin-bottom: 5rem;
+}
+
+.about__list {
+  grid-area: cards;
+
+  display: grid;
+  gap: 3rem;
+
+  margin-bottom: 21.4rem;
+}
+
+.about__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "icon title"
+    "icon text";
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+}
+
+.about__item__title {
+  grid-area: title;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.01rem;
+
+  color: $colorTextMain;
+}
+
+.about__item__text {
+  grid-area: text;
+
+  font-weight: 600;
+  line-height: 1.71;
+}
+
+.about__item__icon {
+  grid-area: icon;
+
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+// ===  PARTNERS LOGOs   ============
+
+.partners {
+  padding-top: 8rem;
+
+  grid-template-areas: " ... ... logo ...  ... ";
+}
+
+.partners__list {
+  grid-area: logo;
+
+  display: grid;
+  gap: 6rem;
+  justify-content: center;
+
+  margin-bottom: 8.4rem;
+}
+
+.partners__item {
+}
+.partners__item__link {
+}
+.partners__item__icon {
+}
+
+.partners__item__icon {
+  width: 152px;
+  height: 100%;
+}
+
+// ===  SUBSCRIBE   ============
+.subscribe {
+  grid-template-areas:
+    " ... title title title  ... "
+    " ... form form form ... ";
+
+  background: $colorThird;
+}
+
+.subscribe__title {
+  grid-area: title;
+
+  padding: 3rem;
+  text-align: center;
+
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: 0.01rem;
+  color: $colorBgnd;
+}
+
+.subscribe__form {
+  grid-area: form;
+
+  margin-bottom: 3.2rem;
+
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+  background: #f9f9f9;
+
+  display: flex;
+  justify-content: space-between;
+
+  & > * {
+    padding: 1.6rem 2rem;
+    color: $colorTextSecond;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 2;
+  }
+}
+
+.form__email {
+}
+.btn__subscribe {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #e6e6e6;
+  background: $colorPrimary;
+}
+
+// ===  REQUEST   ============
+
+.request {
+  grid-template-areas:
+    " ... title title title  ... "
+    " ... lead lead lead ... "
+    " ... cards cards cards ... ";
+
+  padding-top: 7.5rem;
+  padding-bottom: 13rem;
+}
+
+.request__title {
+  grid-area: title;
+
+  margin-bottom: 1rem;
+}
+.request__lead {
+  grid-area: lead;
+
+  margin-bottom: 6rem;
+
+  text-align: center;
+  font-weight: 700;
+}
+
+.request__list {
+  grid-area: cards;
+
+  display: grid;
+  row-gap: 3rem;
+}
+
+.request__item {
+  padding: 5rem 10vw;
+
+  background: $colorBgnd;
+
+  display: grid;
+  row-gap: 1.5rem;
+  justify-items: center;
+
+  grid-template-areas:
+    "icon"
+    "contact"
+    "title"
+    "button";
+
+  &--active {
+    background: $colorTextMain;
+    & h3,
+    * {
+      color: $colorBgnd;
+      fill: $colorBgnd;
+    }
+    & button {
+      border: 1px solid $colorBgnd;
+    }
+  }
+}
+
+.request__item__title {
+  grid-area: title;
+  color: $colorTextMain;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.01rem;
+}
+
+.request__contacts {
+  grid-area: contact;
+
+  font-weight: 600;
+  line-height: 1.72;
+  color: $colorTextMain;
+
+  text-align: center;
+}
+
+.request__item__icon {
+  grid-area: icon;
+  width: 7.2rem;
+  height: 7.2rem;
+
+  fill: $colorSecond;
+}
+
+// ===  CONTACT   ============
+.contact {
+  background: $colorGray;
+
+  grid-template-areas:
+    " ... ... title ...  ... "
+    " ... ... text ...  ... "
+    " ... ... button ...  ... ";
+
+  justify-items: left;
+}
+
+.contact__title {
+  grid-area: title;
+
+  padding-top: 4rem;
+  margin-bottom: 1rem;
+
+  font-size: 2.4rem;
+  line-height: 1.33;
+  letter-spacing: 0.01rem;
+
+  text-align: left;
+}
+.contact__text {
+  grid-area: text;
+
+  margin-bottom: 6.4rem;
+}
+
+.btn__contact {
+  grid-area: button;
+
+  padding: 1.5rem 4rem;
+  margin-bottom: 4rem;
+
+  color: $colorBgnd;
+
+  font-weight: 700;
+  line-height: 2;
+
+  border-radius: 5px;
+  background: $colorPrimary;
+}
+
+// MAIN stop -----------------------------------------------
+
+// FOOTER start -----------------------------------------------
+.main__footer {
+}
+
+.footer__nav {
+  // outline: auto orange;
+  padding-top: 5rem;
+  padding-bottom: 5.6rem;
+
+  row-gap: 3rem;
+
+  color: $colorBgnd;
+
+  background: $colorThird;
+}
+
+.footer__nav__group {
+  grid-column: 3 / -3;
+}
+
+dt {
+  margin-bottom: 2rem;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.01rem;
+}
+
+.footer__nav__list {
+  display: grid;
+  gap: 1rem;
+
+  font-weight: 600;
+  line-height: 1.72;
+}
+
+.footer__nav__icon {
+  width: 4rem;
+  height: 4rem;
+
+  fill: $colorFooterFill;
+}
+
+.footer__nav__group:last-of-type a {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  column-gap: 1rem;
+}
+
+.footer__info {
+  grid-template-areas:
+    " ... ... info ... ..."
+    " ... ... social ... ...";
+
+  padding: 2.5rem 0;
+
+  background: $colorGray;
+}
+.design__info {
+  grid-area: info;
+
+  margin-bottom: 5rem;
+
+  font-weight: 600;
+  line-height: 1.72;
+}
+.social__list {
+  grid-area: social;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.social__item {
+}
+.social__item__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+// FOOTER stop -----------------------------------------------
